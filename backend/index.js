@@ -7,7 +7,8 @@ conncectToMongo();
 
 app.use(express.json())
 app.use(cors());
-app.use('/api/auth',require('./routes/UserLogin'))
+app.use('/api/auth',require('./routes/UserLogin'));
+app.use('/api/auth',require('./routes/AddProduct'));
 
 app.listen(port,()=>{
     console.log(`app listening on port ${port}`)
