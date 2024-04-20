@@ -20,7 +20,7 @@ const Signup = () => {
         if (json.success){
             //  save the auth token and redirect
             localStorage.setItem('token', json.authToken);
-            nevigate('/login')
+            nevigate('/home')
         }
     }
 
