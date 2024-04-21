@@ -10,16 +10,6 @@ router.post("/addproduct",fetchUser, [
     body('price', 'Product\'s price is required').isNumeric(),
     body('description', 'Product\'s description is required').isString(),
     body('image','image url is required').isString()
-    // custom((value, { req }) => {
-        // if (!req.file) {
-        //     throw new Error('Product\'s image is required');
-        // }
-        // // Check file type using a utility function
-        // if (!checkFileType(req.file.mimetype)) {
-        //     throw new Error('Invalid file type. Only images are allowed.');
-        // }
-        // return true;
-    // })
 ], async (req, res) => {
         let success = false;
         let {name,price,description,image} = req.body;
