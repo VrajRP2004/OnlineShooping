@@ -30,4 +30,4 @@ router.post("/addproduct",fetchUser, [
         res.status(500).send("Internal Server Error")
     }
     })
-    module.exports = router;
+module.exports = router;
