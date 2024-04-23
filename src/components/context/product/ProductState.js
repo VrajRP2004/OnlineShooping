@@ -3,10 +3,10 @@ import ProductContext from "./ProductContext";
 
 function ProductState(props) {
     const host = "http://localhost:5000"
-    const notesInitaial =[]
-    const [products, setProducts] = useState(notesInitaial)
+    const productInitaial =[]
+    const [products, setProducts] = useState(productInitaial)
     const addProduct =async (productname, productprice, productdescription,productimage) => {
-        const response = await fetch(`${host}/api/notes/addproduct`, {
+        const response = await fetch(`${host}/api/auth/addproduct`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ function ProductState(props) {
         });
 
         const product = await response.json()
-        setNotes(products.concat(product))
+        setProducts(products.concat(product))
     }
   return (
     <ProductContext.Provider value={{products,addProduct}}>

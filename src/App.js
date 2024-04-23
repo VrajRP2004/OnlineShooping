@@ -9,10 +9,10 @@ import {
 import Signup from "./components/Signup";
 import Homepage from "./components/Homepage/Homepage";
 import AddProductFroentend from "./components/product/AddProductFroentend";
-
+import ProductState from "./components/context/product/ProductState"
 function App() {
   return (
-    <>
+    <ProductState>
       <Router>
         <Navbar />
         {/* <Alert message="I am vraj" /> */}
@@ -26,7 +26,7 @@ function App() {
           </Routes>
         </div>
       </Router>
-    </>
+    </ProductState>
   );
 }
 

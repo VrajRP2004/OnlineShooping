@@ -2,6 +2,20 @@ import React, { useState, useContext } from 'react';
 import ProductContext from '../context/product/ProductContext';
 
 function AddProductFrontend() {
+    const context = useContext(ProductContext);
+    console.log(context)
+    const { addProduct } = context;
+    const [Product, setProduct] = useState({ productname: "", productprice: "", productdescription: "", productimage: "" });
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        addProduct(Product.productname, Product.productprice, Product.productdescription, Product.productimage);
+        setProduct({ productname: "", productprice: "", productdescription: "", productimage: "" });
+    }
+
+    const onChange = (e) => {
+        setProduct({ ...Product, [e.target.name]: e.target.value });
+    }
     const convertToBase64 = (e) => {
         console.log(e);
         if (e.target.files && e.target.files.length > 0) {
@@ -19,23 +33,12 @@ function AddProductFrontend() {
         }
     };
 
-    const context = useContext(ProductContext);
-    const { addProduct } = context;
-    const [Product, setProduct] = useState({ productname: "", productprice: "", productdescription: "", productimage: "" });
-
-    const handleClick = (e) => {
-        e.preventDefault();
-        addProduct(Product.productname, Product.productprice, Product.productdescription, Product.productimage);
-        setProduct({ productname: "", productprice: "", productdescription: "", productimage: "" });
-    }
-
-    const onChange = (e) => {
-        setProduct({ ...Product, [e.target.name]: e.target.value });
-    }
+    
 
     return (
         <div className='container'>
             <form>
+                {console.log('sdfs')}
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Product Name</label>
                     <input type="text" className="form-control" name="productname" onChange={onChange} />
