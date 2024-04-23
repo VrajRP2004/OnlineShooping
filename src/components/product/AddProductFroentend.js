@@ -1,9 +1,22 @@
 import React from 'react'
 
 function AddProductFroentend() {
-    const handleImage = (e)=>{
-        console.log(e)
-    }
+    const convertToBase64 = (e) => {
+        console.log(e);
+        if (e.target.files && e.target.files.length > 0) {
+            let reader = new FileReader();
+            reader.readAsDataURL(e.target.files[0]);
+            reader.onload = () => {
+                console.log(reader.result);
+            };
+            reader.onerror = () => {
+                console.log(reader.error);
+            };
+        } else {
+            console.log("No file selected.");
+        }
+    };
+    
     return (
         <div className='container'>
             <div className="mb-3">
@@ -20,7 +33,7 @@ function AddProductFroentend() {
             </div>
             <div className="mb-3">
                 <label htmlFor="password" className="form-label">Product Image</label>
-                <input className="form-control" type="file" onChange={handleImage} />
+                <input className="form-control" type="file" accept='image/*' onChange={convertToBase64} />
             </div>
 
             <button className='btn btn-primary' type='submit'>Submit</button>
