@@ -11,17 +11,16 @@ router.post("/addproduct",fetchUser, [
     body('description', 'Product\'s description is required').isString(),
     body('image','image url is required').isString()
 ], async (req, res) => {
-        let success = false;
+    try{
         let {name,price,description,image} = req.body;
         const errors = validationResult(req); // get the validation's result
 
         if (!errors.isEmpty()) {  // if any errors come from validationReasult
-            success = false;
-            return res.status(400).json({ success, errors: errors.array() })
+            return res.status(400).json({errors: errors.array() })
         }
-        try{
+        
         const product = new Product({
-            name,price,description,image,user:req.user.id
+            name,price,description,image
         })
         const saveProduct = await product.save()
         res.json(saveProduct)
