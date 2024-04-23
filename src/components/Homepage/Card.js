@@ -4,7 +4,7 @@ import Image from '../Images/SKU-01-Red.jpg'
 function Card() {
     return (
         <>
-            <div className="card mx-3" style={{ width: '18rem' }}>
+            <div className="card mx-1" style={{ width: '18rem' }}>
                 <img src={Image} className="card-img-top" alt="..." />
                 <div className="card-body">
                     <h5 className="card-title">Card title</h5>

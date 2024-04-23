@@ -30,7 +30,7 @@ function HomepageNavbar() {
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link disabled" aria-disabled="true">Disabled</Link>
+                                <Link className="nav-link" to="/addproduct">Disabled</Link>
                             </li>
                         </ul>
                         <form className="d-flex" role="search">
