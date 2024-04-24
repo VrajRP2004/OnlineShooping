@@ -1,20 +1,23 @@
 import React, { useState, useContext } from 'react';
-import ProductContext from '../context/product/ProductContext';
+import ProductContext from '../../context/product/ProductContext'
 
 function AddProductFrontend() {
+    
     const context = useContext(ProductContext);
-    console.log(context)
     const { addProduct } = context;
+    console.log(context)
     const [Product, setProduct] = useState({ productname: "", productprice: "", productdescription: "", productimage: "" });
 
     const handleClick = (e) => {
         e.preventDefault();
         addProduct(Product.productname, Product.productprice, Product.productdescription, Product.productimage);
+        console.log(Product.productdescription)
         setProduct({ productname: "", productprice: "", productdescription: "", productimage: "" });
     }
 
     const onChange = (e) => {
         setProduct({ ...Product, [e.target.name]: e.target.value });
+        console.log(Product.productdescription)
     }
     const convertToBase64 = (e) => {
         console.log(e);
@@ -28,35 +31,32 @@ function AddProductFrontend() {
             reader.onerror = () => {
                 console.log(reader.error);
             };
+            setProduct({ ...Product, [e.target.name]: e.target.value });    
         } else {
             console.log("No file selected.");
         }
     };
-
-    
-
     return (
         <div className='container'>
             <form>
-                {console.log('sdfs')}
                 <div className="mb-3">
-                    <label htmlFor="name" className="form-label">Product Name</label>
-                    <input type="text" className="form-control" name="productname" onChange={onChange} />
+                    <label htmlFor="productname" className="form-label">Product Name</label>
+                    <input type="text" className="form-control" id='productname' name="productname" value={Product.productname} onChange={onChange} />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Product Price</label>
-                    <input type="number" className="form-control" name="productprice" onChange={onChange} />
+                    <label htmlFor="productprice" className="form-label">Product Price</label>
+                    <input type="number" value={Product.productprice} className="form-control" id='productprice' name="productprice" onChange={onChange} />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Description</label>
-                    <input type="text" className="form-control" name="productdescription" onChange={onChange} />
+                    <label htmlFor="productdescription" className="form-label">Description</label>
+                    <input type="text" value={Product.productdescription} className="form-control" id="productdescription" name="productdescription" onChange={onChange} />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Product Image</label>
-                    <input className="form-control" type="file" accept='image/*' name="productimage" onChange={convertToBase64} />
+                    <label htmlFor="productimage" value={Product.productimage} className="form-label">Product Image</label>
+                    <input className="form-control" type="file" accept='image/*' id='productimage' name="productimage" onChange={convertToBase64} />
                 </div>
 
-                <button disabled={Product.productname.length < 2 || Product.productdescription.length < 2 || Product.productprice.length < 1} type="submit" className="btn btn-primary" onClick={handleClick}>Add Product</button>
+                <button disabled={Product.productname.length < 2 || Product.productdescription.length < 2 || Product.productprice.length < 1} type="submit" className="btn btn-primary"  onClick={handleClick}>Add Product</button>
             </form>
         </div>
     )

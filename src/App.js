@@ -8,25 +8,25 @@ import {
 } from "react-router-dom";
 import Signup from "./components/Signup";
 import Homepage from "./components/Homepage/Homepage";
-import AddProductFroentend from "./components/product/AddProductFroentend";
-import ProductState from "./components/context/product/ProductState"
+import AddProductFroentend from "./components/product/AddProductFroentend"
+import ProductState from "./context/product/ProductState"
 function App() {
   return (
     <ProductState>
       <Router>
-        <Navbar />
-        {/* <Alert message="I am vraj" /> */}
+        <Navbar/>
         <div className="contaier">
-          <Routes >
+          <Routes>
             <Route exact path="/" element={<Homepage/>}></Route>
             <Route  path="/login" element={<Login/>}></Route>
             <Route exact path="/signup" element={<Signup/>}></Route>
             <Route exact path="/home" element={<Homepage/>}></Route>
             <Route exact path="/addproduct" element={<AddProductFroentend/>}></Route>
+            {/* <Route exact path="/addproduct1" element={<ProductState/>}></Route> */}
           </Routes>
         </div>
       </Router>
-    </ProductState>
+      </ProductState>
   );
 }
 

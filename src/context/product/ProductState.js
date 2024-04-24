@@ -6,6 +6,7 @@ function ProductState(props) {
     const productInitaial =[]
     const [products, setProducts] = useState(productInitaial)
     const addProduct =async (productname, productprice, productdescription,productimage) => {
+        try{
         const response = await fetch(`${host}/api/auth/addproduct`, {
             method: 'POST',
             headers: {
@@ -17,10 +18,13 @@ function ProductState(props) {
 
         const product = await response.json()
         setProducts(products.concat(product))
+    }catch(error){
+        console.log(error.message)
+    }
     }
   return (
     <ProductContext.Provider value={{products,addProduct}}>
-        {props.childern}
+        {props.children}
     </ProductContext.Provider>
   )
 }
