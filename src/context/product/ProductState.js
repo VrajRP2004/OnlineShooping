@@ -15,11 +15,11 @@ function ProductState(props) {
             },
             body: JSON.stringify({productname, productprice, productdescription,productimage})
         });
-
+        console.log(response.json())
         const product = await response.json()
         setProducts(products.concat(product))
     }catch(error){
-        console.log(error.message)
+        console.log(error.message,error)
     }
     }
   return (

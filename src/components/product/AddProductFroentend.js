@@ -4,20 +4,18 @@ import ProductContext from '../../context/product/ProductContext'
 function AddProductFrontend() {
     
     const context = useContext(ProductContext);
-    const { addProduct } = context;
     console.log(context)
+    const { addProduct } = context;
     const [Product, setProduct] = useState({ productname: "", productprice: "", productdescription: "", productimage: "" });
 
     const handleClick = (e) => {
         e.preventDefault();
         addProduct(Product.productname, Product.productprice, Product.productdescription, Product.productimage);
-        console.log(Product.productdescription)
         setProduct({ productname: "", productprice: "", productdescription: "", productimage: "" });
     }
 
     const onChange = (e) => {
         setProduct({ ...Product, [e.target.name]: e.target.value });
-        console.log(Product.productdescription)
     }
     const convertToBase64 = (e) => {
         console.log(e);

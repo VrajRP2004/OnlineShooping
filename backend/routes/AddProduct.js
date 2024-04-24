@@ -6,10 +6,10 @@ const fetchUser = require('../middleware/fetchUser')
 
 // add product
 router.post("/addproduct",fetchUser, [
-    body('name', 'Product\'s name is required').isString(),
-    body('price', 'Product\'s price is required').isNumeric(),
-    body('description', 'Product\'s description is required').isString(),
-    body('image','image url is required').isString()
+    body('productname', 'Product\'s name is required').isString(),
+    body('productprice', 'Product\'s price is required').isNumeric(),
+    body('productdescription', 'Product\'s description is required').isString(),
+    body('productimage','image url is required').isString()
 ], async (req, res) => {
     try{
         let {name,price,description,image} = req.body;
