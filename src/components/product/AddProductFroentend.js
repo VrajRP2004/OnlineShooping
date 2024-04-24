@@ -4,32 +4,32 @@ import ProductContext from '../../context/product/ProductContext'
 function AddProductFrontend() {
     
     const context = useContext(ProductContext);
-    console.log(context)
+    // console.log(context)
     const { addProduct } = context;
     const [Product, setProduct] = useState({ productname: "", productprice: "", productdescription: "", productimage: "" });
 
     const handleClick = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         addProduct(Product.productname, Product.productprice, Product.productdescription, Product.productimage);
-        setProduct({ productname: "", productprice: "", productdescription: "", productimage: "" });
+        // setProduct({ productname: "", productprice: "", productdescription: "", productimage: "" });
     }
 
     const onChange = (e) => {
         setProduct({ ...Product, [e.target.name]: e.target.value });
     }
     const convertToBase64 = (e) => {
-        console.log(e);
+        // console.log(e);
+        setProduct({ ...Product, [e.target.name]: e.target.value });    
         if (e.target.files && e.target.files.length > 0) {
             let reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);
-            reader.onload = () => {
-                console.log(reader.result);
-                // You can store the base64-encoded image data in state or pass it to a function here
-            };
+            // reader.onload = () => {
+            //     console.log(reader.result);
+            //     // You can store the base64-encoded image data in state or pass it to a function here
+            // };
             reader.onerror = () => {
                 console.log(reader.error);
             };
-            setProduct({ ...Product, [e.target.name]: e.target.value });    
         } else {
             console.log("No file selected.");
         }
