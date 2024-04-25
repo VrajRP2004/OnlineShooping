@@ -8,15 +8,6 @@ function Homepage() {
           <HomepageNavbar/>
           <div className="row">
             <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
           </div>
         </>
     )

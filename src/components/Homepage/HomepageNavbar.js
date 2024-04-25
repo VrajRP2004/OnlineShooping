@@ -30,7 +30,7 @@ function HomepageNavbar() {
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/addproduct">Disabled</Link>
+                                <Link className="nav-link" to="/addproduct">Add Product</Link>
                             </li>
                         </ul>
                         <form className="d-flex" role="search">
