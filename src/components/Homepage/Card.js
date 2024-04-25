@@ -1,15 +1,23 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
-import Image from '../Images/SKU-01-Red.jpg'
-function Card() {
+// import Image from '../Images/SKU-01-Red.jpg'
+import React, { useContext } from 'react'
+import ProductContext from '../../context/product/ProductContext'
+
+
+
+function Card(props) {
+    const context = useContext(ProductContext);
+    // console.log(context)
+    const { product } = props;
     return (
         <>
             <div className="card mx-1" style={{ width: '18rem' }}>
-                <img src={Image} className="card-img-top" alt="..." />
+                <img src={product.productimage} className="card-img-top" alt="..." />
+                {/* {console.log(product.productimage)} */}
                 <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <Link href="/" className="btn btn-primary">Go somewhere</Link>
+                    <h5 className="card-title">{product.productname}</h5>
+                    <p className="card-text">{product.productprice}</p>
+                    <Link to="/" className="btn btn-primary">{product.productdescription}</Link>
                 </div>
             </div>
         </>

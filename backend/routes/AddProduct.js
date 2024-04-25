@@ -4,6 +4,18 @@ const Product = require('../model/Product')
 const { body, validationResult } = require('express-validator')
 const fetchUser = require('../middleware/fetchUser')
 
+// getch all product
+router.get("/fetchallproduct",async(req,res)=>{
+    try{
+        const Products = await Product.find({ unid:"hitanshijoyajinal" })
+        res.json(Products)
+    }catch(error){
+        console.error(error.message)
+        res.status(500).send("Internal Server Error")
+    }
+})
+
+
 // add product
 router.post("/addproduct",fetchUser, [
     body('productname', 'Product\'s name is required').isString(),

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const {Schema} = mongoose;
+const un1 = "hitanshijoyajinal"
 const productSchema = new Schema({
     productname:{
         type:String,
@@ -17,6 +18,11 @@ const productSchema = new Schema({
     productimage:{
         type:String,
         required:true
+    },
+    unid:{
+        type:String,
+        default:un1
+
     }
 })
 

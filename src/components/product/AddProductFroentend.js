@@ -9,8 +9,8 @@ function AddProductFrontend() {
     const [Product, setProduct] = useState({ productname: "", productprice: "", productdescription: "", productimage: "" });
 
     const handleClick = (e) => {
-        // e.preventDefault();
-        addProduct(Product.productname, Product.productprice, Product.productdescription, Product.productimage);
+        e.preventDefault();
+        addProduct(Product.productname, Product.productprice, Product.productdescription, Product.productimage=image);
         // setProduct({ productname: "", productprice: "", productdescription: "", productimage: "" });
     }
 
@@ -18,16 +18,17 @@ function AddProductFrontend() {
         setProduct({ ...Product, [e.target.name]: e.target.value });
     }
     const [image,setImage] = useState("")
+    // console.log(image)
     const convertToBase64 = (e) => {
         // console.log(e);
         setProduct({ ...Product, [e.target.name]: e.target.value });    
         if (e.target.files && e.target.files.length > 0) {
-            let reader = new FileReader();
+            var reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);
             reader.onload = () => {
                 // console.log(reader.result);
                 // You can store the base64-encoded image data in state or pass it to a function here
-                setImage(reader.result)
+               return setImage(reader.result)
             };
             reader.onerror = () => {
                 console.log(reader.error);
