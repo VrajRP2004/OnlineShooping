@@ -1,6 +1,5 @@
 import { useState } from "react";
 import ProductContext from "./ProductContext";
-
 function ProductState(props) {
     const host = "http://localhost:5000"
     const productInitaial = []
@@ -37,8 +36,8 @@ function ProductState(props) {
             console.log(product.productimage)
             // console.log(product); // Log the parsed JSON response
             setProducts(products.concat(product));
-        } catch (error) {
-            console.log(error.message, error);
+        }catch(error) {
+           alert('You have to login befor add Product');
         }
     }
 

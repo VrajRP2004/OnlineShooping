@@ -10,6 +10,7 @@ import Signup from "./components/Signup";
 import Homepage from "./components/Homepage/Homepage";
 import AddProductFroentend from "./components/product/AddProductFroentend"
 import ProductState from "./context/product/ProductState"
+import ProductPage from "./components/product/ProductPage";
 function App() {
   return (
     <ProductState>
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/signup" element={<Signup/>}></Route>
             <Route exact path="/home" element={<Homepage/>}></Route>
             <Route exact path="/addproduct" element={<AddProductFroentend/>}></Route>
+            <Route exact path="/product" element={<ProductPage/>}></Route>
           </Routes>
         </div>
       </Router>
