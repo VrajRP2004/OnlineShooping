@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useNavigate }from 'react-router-dom'
 
 const Signup = () => {
-    const [credentials, setCredentials] = useState({name:"",email: "", password: "", cpassword:""})
+    const [credentials, setCredentials] = useState({name:"",email: "", password: ""})
     let nevigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -41,10 +41,6 @@ const Signup = () => {
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password</label>
                     <input type="password" className="form-control" value={credentials.password} onChange={onChange} name="password" id="password"  required minLength={2} />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Confirm Password</label>
-                    <input type="password" className="form-control" value={credentials.cpassword} onChange={onChange} name="cpassword" id="cpassword"  required minLength={2} />
                 </div>
 
                 <button className='btn btn-primary' type='submit'>Submit</button>

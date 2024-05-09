@@ -16,14 +16,14 @@ function Homepage() {
         <>
           <HomepageNavbar/>
           <div className="row">
-            {(products===null? <div>No product added</div> : (products.map((product) => {
+            {/* {(products===null? <div>No product added</div> : (products.map((product) => {
                     return <Card key={product.unid}  product={product} />
                 })))
 
-            }
-          {/* {products.map((product) => {
+            } */}
+          {products.map((product) => {
                     return <Card key={product.unid}  product={product} />
-                })} */}
+                })}
           </div>
         </>
     )

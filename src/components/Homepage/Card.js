@@ -19,7 +19,7 @@ function Card(props) {
                     <h5 className="card-title">Name : {product.productname}</h5>
                     <p className="card-text">Price : {product.productprice}</p>
                     <p className="card-text">Information : {product.productdescription}</p>
-                    <Link to={'/${product.id}'} className="btn btn-primary">More Details</Link>
+                    <Link to={(`/product/${product._id}`)} className="btn btn-primary">More Details</Link>
                       
                 </div>
             </div>

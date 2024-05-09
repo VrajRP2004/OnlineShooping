@@ -33,7 +33,7 @@ function ProductState(props) {
                 body: JSON.stringify({ productname, productprice, productdescription,productimage: productimage })
             });
             const product = await response.json();
-            console.log(product.productimage)
+            // console.log(product.productimage)
             // console.log(product); // Log the parsed JSON response
             setProducts(products.concat(product));
         }catch(error) {
@@ -41,8 +41,23 @@ function ProductState(props) {
         }
     }
 
+    // get one product
+    const getOneProduct = async(id) =>{
+        try{
+            const response = await fetch(`${host}/api/auth/fetchallproduct/${id}`,{
+                method:'GET'
+            })
+            const json = await response.json();
+            setProducts(json);
+            // console.log(json)
+        }catch(error){
+            console.log(error.message, error);
+        }
+    }
+
+
     return (
-        <ProductContext.Provider value={{ products, addProduct, getallProduct }}>
+        <ProductContext.Provider value={{ products, addProduct, getallProduct, getOneProduct }}>
             {props.children}
         </ProductContext.Provider>
     )
