@@ -15,6 +15,18 @@ router.get("/fetchallproduct",async(req,res)=>{
     }
 })
 
+// get one product by ID
+router.get("/fetchallproduct/:id",async(req,res)=>{
+    
+    try{
+        let product = await Product.findById(req.params.id)
+    res.json(product)
+    }catch(error){
+        console.error(error.message)
+        res.status(500).send("Internal Server Error")
+    }
+})
+
 
 // add product
 router.post("/addproduct",fetchUser, [
