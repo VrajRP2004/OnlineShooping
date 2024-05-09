@@ -57,7 +57,7 @@ function AddProductFrontend() {
                     <input className="form-control" type="file" accept='image/*' id='productimage' name="productimage" onChange={convertToBase64} />
                 </div>
 
-                <button disabled={Product.productname.length < 2 || Product.productdescription.length < 2 || Product.productprice.length < 1} type="submit" className="btn btn-primary"  onClick={handleClick}>Add Product</button>
+                <button type="submit" disabled={Product.productname.length < 2 || Product.productdescription.length < 2 || Product.productprice.length < 1} className="btn btn-primary"  onClick={handleClick}>Add Product</button>
             </form>
         </div>
     )

@@ -43,7 +43,7 @@ const Signup = () => {
                     <input type="password" className="form-control" value={credentials.password} onChange={onChange} name="password" id="password"  required minLength={2} />
                 </div>
 
-                <button className='btn btn-primary' type='submit'>Submit</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
 
             </form>
     </div>
