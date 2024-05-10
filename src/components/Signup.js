@@ -36,7 +36,7 @@ const Signup = () => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control"  onChange={onChange} id="email" required minLength={2}  name="email" aria-describedby="emailHelp" value={credentials.email} />
+                    <input type="email" className="form-control"  onChange={onChange} id="email1" required minLength={2}  name="email" aria-describedby="emailHelp" value={credentials.email} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password</label>
