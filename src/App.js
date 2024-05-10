@@ -14,7 +14,7 @@ import ProductPage from "./components/product/ProductPage";
 function App() {
   return (
     <ProductState>
-      <Router basename="/home">
+      <Router basename="/home" element={<Homepage/>}>
         <Navbar/>
         <div className="contaier">
           <Routes>
