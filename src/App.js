@@ -18,13 +18,13 @@ function App() {
         <Navbar/>
         <div className="contaier">
           <Routes>
-            <Route  path="/" element={<Homepage/>}></Route>
-            <Route  path="/OnlineShooping" element={<Homepage/>}></Route>
-            <Route  path="/login" element={<Login/>}></Route>
-            <Route  path="/signup" element={<Signup/>}></Route>
-            <Route  path="/home" element={<Homepage/>}></Route>
-            <Route  path="/addproduct" element={<AddProductFroentend/>}></Route>
-            <Route  path={'/product/:id'} element={<ProductPage/>}></Route>
+            <Route exact  path="/" element={<Homepage/>}></Route>
+            <Route exact path="/OnlineShooping" element={<Homepage/>}></Route>
+            <Route exact path="/login" element={<Login/>}></Route>
+            <Route exact path="/signup" element={<Signup/>}></Route>
+            <Route exact path="/home" element={<Homepage/>}></Route>
+            <Route exact path="/addproduct" element={<AddProductFroentend/>}></Route>
+            <Route exact path={'/product/:id'} element={<ProductPage/>}></Route>
           </Routes>
         </div>
       </Router>
