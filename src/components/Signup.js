@@ -36,11 +36,11 @@ const Signup = () => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" value={credentials.email} onChange={onChange} id="email" required minLength={2}  name="email" aria-describedby="emailHelp" />
+                    <input type="email" className="form-control"  onChange={onChange} id="email" required minLength={2}  name="email" aria-describedby="emailHelp" value={credentials.email} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" value={credentials.password} onChange={onChange} name="password" id="password"  required minLength={2} />
+                    <input type="password"   onChange={onChange} className="form-control"  id="password"name="password"   required minLength={2} value={credentials.password}/>
                 </div>
 
                 <button type="submit" className="btn btn-primary">Submit</button>
