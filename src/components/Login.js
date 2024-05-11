@@ -22,7 +22,8 @@ export default function Login() {
             const json = await response.json();
             if (json.success) {
                 localStorage.setItem('token', json.authToken);
-                navigate("/home");
+                const token = json.authToken
+                navigate("/home",{state:{token}});
             } else {
                 // Handle login failure
                 console.error("Login failed");

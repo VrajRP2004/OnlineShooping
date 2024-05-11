@@ -1,7 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import ProductContext from '../../context/product/ProductContext';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 function ProductPage() {
+    const location = useLocation();
+    const { token } = location.state || {};
+    console.log(token)
     const context = useContext(ProductContext);
     const { products, getOneProduct } = context;
     const { id } = useParams();

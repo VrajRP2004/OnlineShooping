@@ -105,4 +105,17 @@ router.post('/getusers',fetchUser,async (req, res) => {
     }
     })
 
+// add to card product in user
+router.post('/:id',fetchUser,async(req,res)=>{
+    console.log('add to cart performed');
+    try{
+        const userId = req.user.id;
+        const user = await User.findBy(userId).select("-password")
+
+    }catch (error) {
+        console.error(error.message)
+            res.status(500).send("Internal Server Error")
+    }
+})
+
 module.exports = router;
