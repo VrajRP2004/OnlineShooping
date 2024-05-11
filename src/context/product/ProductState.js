@@ -38,6 +38,7 @@ function ProductState(props) {
             setProducts(products.concat(product));
         }catch(error) {
            alert('You have to login befor add Product');
+           console.log('dl')
         }
     }
 
@@ -57,7 +58,7 @@ function ProductState(props) {
 
 
     return (
-        <ProductContext.Provider value={{ products, addProduct, getallProduct, getOneProduct }}>
+        <ProductContext.Provider value={{ products ,setProducts, addProduct, getallProduct, getOneProduct }}>
             {props.children}
         </ProductContext.Provider>
     )
